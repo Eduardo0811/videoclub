@@ -1,0 +1,15 @@
+# Java
+target/
+*.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Docker
+**/node_modules/
+
+# OS
+.DS_Store
+

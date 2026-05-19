@@ -1,8 +1,14 @@
 package videoclub.service;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 import org.springframework.stereotype.Service;
-import java.util.*;
-import java.util.concurrent.*;
 
 @Service
 public class VideoClubServiceImpl {
@@ -47,5 +53,21 @@ public class VideoClubServiceImpl {
         });
 
         return "Renta exitosa: " + nombre;
+    }
+
+   public String eliminarRenta(String nombre) {
+
+        synchronized (this) {
+
+            if (!rentadas.contains(nombre)) {
+                return "La película no estaba rentada";
+            }
+
+            rentadas.remove(nombre);
+
+        }
+
+        return "Renta eliminada: " + nombre;
+
     }
 }

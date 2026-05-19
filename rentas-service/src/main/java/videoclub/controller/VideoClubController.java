@@ -1,6 +1,8 @@
 package videoclub.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,4 +26,10 @@ public class VideoClubController {
     public String rentar(@RequestBody PeliculaRequest request) {
         return servicio.rentarPelicula(request.getNombre());
     }
+
+    @DeleteMapping("/rentar/{nombre}")
+    public String eliminar(@PathVariable String nombre) {
+        return servicio.eliminarRenta(nombre);
+    }
+
 }

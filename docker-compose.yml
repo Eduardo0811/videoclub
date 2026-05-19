@@ -2,10 +2,15 @@ version: '3'
 
 services:
 
-  backend:
-    build: ./backend
+  peliculas-service:
+    build: ./peliculas-service
     ports:
       - "8081:8081"
+
+  rentas-service:
+    build: ./rentas-service
+    ports:
+      - "8082:8082"
 
   frontend:
     build: ./frontend

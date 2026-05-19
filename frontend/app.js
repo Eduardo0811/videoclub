@@ -1,7 +1,8 @@
-const API = "http://localhost:8081/api";
+const API_PELICULAS = "http://localhost:8081/api";
+const API_RENTAS = "http://localhost:8082/api";
 
 function cargarPeliculas() {
-    fetch(`${API}/peliculas`)
+    fetch(`${API_PELICULAS}/peliculas`)
         .then(res => res.json())
         .then(data => {
             const lista = document.getElementById("lista");
@@ -17,7 +18,7 @@ function cargarPeliculas() {
 function rentar() {
     const nombre = document.getElementById("peli").value;
 
-    fetch(`${API}/rentar`, {
+    fetch(`${API_RENTAS}/rentar`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
